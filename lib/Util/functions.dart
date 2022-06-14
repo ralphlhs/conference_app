@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../con_detail_page.dart';
 import 'package:intl/intl_browser.dart';
+import 'package:conference_app/Model/con_model.dart';
 
 // class Functions {
   List<ConModel>? conmodel;
@@ -24,7 +25,7 @@ import 'package:intl/intl_browser.dart';
       MaterialPageRoute(
           builder: (context) =>
               ConDetailPage(
-                commodel: conmodel!,
+                commodel: conModel,
                 location: a,
                 link: b,
                 start: c,
@@ -34,6 +35,7 @@ import 'package:intl/intl_browser.dart';
   }
 
   void dateTime(String start, String end){
+
     DateFormat dateFormat = DateFormat('yMMMd');
     String startDate = dateFormat.format(DateTime.parse(start));
     String endDate = dateFormat.format(DateTime.parse(end));

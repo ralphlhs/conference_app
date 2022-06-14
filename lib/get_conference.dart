@@ -41,7 +41,7 @@ class _GetConferenceState extends State<GetConference> {
                   if (!snapshot.hasData) {
                     return const Text("데이터가 없습니다.");
                   }
-                  conmodel = snapshot.data!;
+                  final conmodel = snapshot.data!;
                   return ListView(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),

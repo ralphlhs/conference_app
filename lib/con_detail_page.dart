@@ -5,7 +5,7 @@ import "package:intl/intl.dart";
 import 'package:conference_app/Util/extension/date_time.dart';
 
 class ConDetailPage extends StatelessWidget {
-  List<ConModel>? commodel;
+  ConModel? commodel;
   String location;
   String link;
   String? start;
@@ -38,14 +38,14 @@ class ConDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              location,
+              commodel!.name!,
               style: const TextStyle(fontSize: 15.0),
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
-              DateTime.parse(start!).toyMMMd() +' '+
+              DateTime.parse(commodel!.start!).toyMMMd() +' '+
                   DateFormat.yMMMd().format(DateTime.parse(end!)),
               style: const TextStyle(fontSize: 15.0),
             ),
