@@ -1,11 +1,11 @@
 import 'dart:convert';
+
 import 'package:conference_app/Model/con_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+
 import '../con_detail_page.dart';
-import 'package:intl/intl_browser.dart';
-import 'package:conference_app/Model/con_model.dart';
 
 // class Functions {
   List<ConModel>? conmodel;
@@ -19,17 +19,13 @@ import 'package:conference_app/Model/con_model.dart';
     return toConModel;
   }
 
-  void pagemove(BuildContext context, ConModel conModel, String a, String b, String c, String d) {
+  void pagemove(BuildContext context, ConModel conModel) {
     Navigator.push(
       context,
       MaterialPageRoute(
           builder: (context) =>
               ConDetailPage(
                 commodel: conModel,
-                location: a,
-                link: b,
-                start: c,
-                end: d,
               )),
     );
   }

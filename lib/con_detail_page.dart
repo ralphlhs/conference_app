@@ -6,22 +6,14 @@ import 'package:conference_app/Util/extension/date_time.dart';
 
 class ConDetailPage extends StatelessWidget {
   ConModel? commodel;
-  String location;
-  String link;
-  String? start;
-  String? end;
 
   ConDetailPage({
     Key? key,
     this.commodel,
-    required this.location,
-    required this.link,
-    required this.start,
-    required this.end,
   }) : super(key: key);
 
   void _launchUrl() async {
-    final Uri _url = Uri.parse(link);
+    final Uri _url = Uri.parse(commodel!.link!);
     if (!await launchUrl(_url)) throw 'Could not launch';
   }
 
@@ -46,14 +38,14 @@ class ConDetailPage extends StatelessWidget {
             ),
             Text(
               DateTime.parse(commodel!.start!).toyMMMd() +' '+
-                  DateFormat.yMMMd().format(DateTime.parse(end!)),
+                  DateFormat.yMMMd().format(DateTime.parse(commodel!.end!)),
               style: const TextStyle(fontSize: 15.0),
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
-              start! + ' - ' + end!,
+              commodel!.start! + ' - ' + commodel!.end!,
               style: const TextStyle(fontSize: 15.0),
             ),
             const SizedBox(
@@ -62,7 +54,7 @@ class ConDetailPage extends StatelessWidget {
             InkWell(
                 onTap: _launchUrl,
                 child: Text(
-                  link,
+                  commodel!.link!,
                   style: const TextStyle(fontSize: 17.0),
                 )),
           ],
