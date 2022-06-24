@@ -24,10 +24,13 @@ final transactions = [
 
 void main() {
 // 1. 2011년에 일어난 모든 트랜잭션을 찾아 값을 오름차순으로 정리하여 나열하시오
+  print("==================================================");
 (transactions..sort((Transaction a, Transaction b) => -a.value.compareTo(b.value))).where((Transaction e)=>e.year == 2011).forEach((Transaction element) {print(element.value);});
 // 2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
+  print("==================================================");
 transactions.map((e) => e.trader.city).toSet().forEach((element) {print(element);});
 // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
+  print("==================================================");
 transactions.map((e) => e.trader.name).forEach(print);
 // 4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오
 // 5. 밀라노에 거래자가 있는가?
