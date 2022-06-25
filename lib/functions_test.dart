@@ -63,12 +63,15 @@ void main() {
   print("7 ==================================================");
   print("트랜젝션 최대값은 " +
       "${transactions.map((e) => e.value).reduce((value, element) => max(value, element))}");
+  print(transactions.reduce((a, b) => a.value > b.value ? a : b));
 // 8. 전체 트랜잭션 중 최소값은 얼마인가?
   print("8 ==================================================");
   print("트랜젝션 최소값은 " +
       "${transactions.map((e) => e.value).reduce((value, element) => min(value, element))}");
-// 9. 영국 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오
-  print("9 ==================================================");
+  print("트랜젝션 합한값 " +
+      "${transactions.fold<int>(0, (previousValue, element) => previousValue + element.value)}");
+// 9. 영국 케임브리지에 거주하는 거래자의 모든
+//   print("9 =================================================="); 트랙잭션값을 출력하시오
   transactions
       .where((e) => e.trader.city == "Cambridge")
       .where((e) => e.trader.country.nationality == "England")
